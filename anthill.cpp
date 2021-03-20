@@ -377,9 +377,9 @@ int main (int argc, char **argv) {
     int loc4 = 0;
     max_val = 0;
     #pragma omp parallel for
-    for (int i = loc1-8; i <= loc1+8; i+=2){
+    for (int i = loc1-7; i < loc1+8; i+=2){
         #pragma omp parallel for
-        for (int j = loc2-8; j <= loc2+8; j+=2){
+        for (int j = loc2-7; j < loc2+8; j+=2){
             double val = MyLawn.number_of_ants_in_cell(i, j);
             #pragma omp critical
             if (val > max_val){
