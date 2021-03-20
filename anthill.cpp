@@ -364,6 +364,7 @@ int main (int argc, char **argv) {
     for (int i = 8; i < MyLawn.m; i+=16){
         for (int j = 8; j < MyLawn.m; j+=16){
             double val = MyLawn.number_of_ants_in_cell(i, j);
+            #pragma omp critical
             if (val > max_val){
                 max_val = val;
                 loc1 = i;
