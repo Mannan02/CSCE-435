@@ -373,7 +373,23 @@ int main (int argc, char **argv) {
             }
         }
     }
-    printf("%d %d", loc1, loc2);
+    int loc3 = 0;
+    int loc4 = 0;
+    max_val = 0;
+    #pragma omp parallel for
+    for (int i = loc1-8; i <= loc1+8; i+=2){
+        #pragma omp parallel for
+        for (int j = loc2-8; j <= loc2+8; j+=2){
+            double val = MyLawn.number_of_ants_in_cell(i, j);
+            #pragma omp critical
+            if (val > max_val){
+                max_val = val;
+                loc1 = i;
+                loc2 = j;
+            }
+        }
+    }
+    printf("%d %d", loc3, loc4);
     // #pragma parallel for ends here ...
     execution_time = omp_get_wtime() - start_time; 
 
