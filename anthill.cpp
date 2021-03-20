@@ -384,8 +384,8 @@ int main (int argc, char **argv) {
             #pragma omp critical
             if (val > max_val){
                 max_val = val;
-                loc1 = i;
-                loc2 = j;
+                loc3 = i;
+                loc4 = j;
             }
         }
     }
