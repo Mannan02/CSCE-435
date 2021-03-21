@@ -397,8 +397,8 @@ int main (int argc, char **argv) {
     {
         int nt = omp_get_num_threads();
         printf("%d\n",nt);
-        loc1 = maxinfo[0].loc1;
-        loc2 = maxinfo[0].loc2;
+        loc11 = maxinfo[0].loc1;
+        loc22 = maxinfo[0].loc2;
         max_val = maxinfo[0].val;
         for (int i = 1; i < 8; ++i){
             if (maxinfo[i].val > max_val){
@@ -409,7 +409,9 @@ int main (int argc, char **argv) {
         }
     }
     double exec_time = omp_get_wtime();
+    max_val = 0;
     printf("%d %d %.8f\n", loc11, loc22,exec_time-start_time);
+    exec_time = omp_get_wtime();
     #pragma omp parallel for collapse(2) private(i,j) shared(max_val, loc1, loc2)
     for (i = 8; i < MyLawn.m; i+=15){
         // #pragma omp parallel for
