@@ -362,13 +362,13 @@ int main (int argc, char **argv) {
     int loc2 = 0;
     int i;
     int j;
-    typedef struct tvals
+    typedef struct
     {
         double val;
         int loc1;
         int loc2;
         char pad[128];
-    };
+    } tvals;
     tvals maxinfo[16];
     #pragma omp parallel shared(maxinfo)
     {
