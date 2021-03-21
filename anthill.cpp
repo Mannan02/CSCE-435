@@ -376,9 +376,9 @@ int main (int argc, char **argv) {
         printf("id: %d", id);
         maxinfo[id].val = -1.0e30;
         #pragma omp for collapse(2)
-        for (i = 8; i < MyLawn.m; i+=15){
+        for (i = 7; i < MyLawn.m; i+=15){
                 // #pragma omp parallel for
-                for (j = 8; j < MyLawn.m; j+=15){
+                for (j = 7; j < MyLawn.m; j+=15){
                     double val = MyLawn.number_of_ants_in_cell(i, j);
                     // #pragma omp critical
                     if (val > maxinfo[id].val){
