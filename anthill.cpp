@@ -380,7 +380,7 @@ int main (int argc, char **argv) {
     int upperi = loc1+8;
     int upperj = loc2 + 8;
     if (loc1 + 8 > MyLawn.m){
-        upperi = MyLawn.m
+        upperi = MyLawn.m;
     }
     if (loc2 + 8 > MyLawn.m){
         upperj = MyLawn.m;
