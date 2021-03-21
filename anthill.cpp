@@ -373,6 +373,7 @@ int main (int argc, char **argv) {
             }
         }
     }
+    printf("%d %d\n", loc1, loc2);
     int loc3 = 0;
     int loc4 = 0;
     max_val = 0;
@@ -389,6 +390,7 @@ int main (int argc, char **argv) {
             }
         }
     }
+    printf("%d %d\n", loc3, loc4);
     int finalLoc1 = 0;
     int finalLoc2 = 0;
     max_val = 0;
