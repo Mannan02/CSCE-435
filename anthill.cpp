@@ -400,7 +400,7 @@ int main (int argc, char **argv) {
         loc11 = maxinfo[0].loc1;
         loc22 = maxinfo[0].loc2;
         max_val = maxinfo[0].val;
-        for (int i = 1; i < 8; ++i){
+        for (int i = 1; i < 4; ++i){
             if (maxinfo[i].val > max_val){
                 max_val = maxinfo[i].val;
                 loc11 = maxinfo[i].loc1;
