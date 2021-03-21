@@ -370,6 +370,9 @@ int main (int argc, char **argv) {
         char pad[128];
     } tvals;
     tvals maxinfo[16];
+    int loc11;
+    int loc22;
+    start_time = omp_get_wtime();
     #pragma omp parallel shared(maxinfo)
     {
         int id = omp_get_thread_num();
@@ -389,9 +392,6 @@ int main (int argc, char **argv) {
                 }
             }
     }
-    int loc11;
-    int loc22;
-    
     #pragma omp flush(maxinfo)
     #pragma omp master
     {
@@ -410,7 +410,7 @@ int main (int argc, char **argv) {
     }
     double exec_time = omp_get_wtime();
     printf("%d %d %.8f\n", loc11, loc22,exec_time-start_time);
-    // #pragma omp parallel for collapse(2) private(i,j) shared(max_val, loc1, loc2)
+    #pragma omp parallel for collapse(2) private(i,j) shared(max_val, loc1, loc2)
     for (i = 8; i < MyLawn.m; i+=15){
         // #pragma omp parallel for
         for (j = 8; j < MyLawn.m; j+=15){
