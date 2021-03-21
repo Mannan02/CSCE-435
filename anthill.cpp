@@ -379,10 +379,10 @@ int main (int argc, char **argv) {
     max_val = 0;
     int upperi = loc1+8;
     int upperj = loc2 + 8;
-    if (loc1 + 8 > MyLawn.m){
+    if (loc1 + 15 >= MyLawn.m){
         upperi = MyLawn.m;
     }
-    if (loc2 + 8 > MyLawn.m){
+    if (loc2 + 15 >= MyLawn.m){
         upperj = MyLawn.m;
     }
     // #pragma omp parallel for
