@@ -360,10 +360,12 @@ int main (int argc, char **argv) {
     double max_val = 0;
     int loc1 = 0;
     int loc2 = 0;
+    int i;
+    int j;
     #pragma omp parallel for collapse(2) private(i,j) shared(max_val)
-    for (int i = 8; i < MyLawn.m; i+=15){
+    for (i = 8; i < MyLawn.m; i+=15){
         // #pragma omp parallel for
-        for (int j = 8; j < MyLawn.m; j+=15){
+        for (j = 8; j < MyLawn.m; j+=15){
             double val = MyLawn.number_of_ants_in_cell(i, j);
             // #pragma omp critical
             if (val > max_val){
