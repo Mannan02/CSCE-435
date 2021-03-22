@@ -358,8 +358,6 @@ int main (int argc, char **argv) {
     // }
     // printf("%d %d", loc1, loc2);
     double max_val = 0;
-    int loc1 = 0;
-    int loc2 = 0;
     int i;
     int j;
     typedef struct
