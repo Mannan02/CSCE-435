@@ -408,9 +408,9 @@ int main (int argc, char **argv) {
     // max_val = 0;
     // printf("%d %d\n", loc11, loc22);
     // #pragma omp parallel for collapse(2) private(i,j) shared(max_val, loc1, loc2)
-    for (i = 8; i < MyLawn.m; i+=15){
+    for (i = 7; i < MyLawn.m; i+=15){
         // #pragma omp parallel for
-        for (j = 8; j < MyLawn.m; j+=15){
+        for (j = 7; j < MyLawn.m; j+=15){
             double val = MyLawn.number_of_ants_in_cell(i, j);
             // #pragma omp critical
             if (val > max_val){
