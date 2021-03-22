@@ -370,8 +370,8 @@ int main (int argc, char **argv) {
         char pad[128];
     } tvals;
     tvals maxinfo[18];
-    int loc11;
-    int loc22;
+    int loc1;
+    int loc2;
     start_time = omp_get_wtime();
     #pragma omp parallel shared(maxinfo)
     {
@@ -397,8 +397,8 @@ int main (int argc, char **argv) {
     {
         int nt = omp_get_num_threads();
         printf("%d\n",nt);
-        loc11 = maxinfo[0].loc1;
-        loc22 = maxinfo[0].loc2;
+        loc1 = maxinfo[0].loc1;
+        loc2 = maxinfo[0].loc2;
         max_val = maxinfo[0].val;
         for (int i = 1; i < 16; ++i){
             if (maxinfo[i].val > max_val){
