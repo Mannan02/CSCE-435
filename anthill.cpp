@@ -369,7 +369,7 @@ int main (int argc, char **argv) {
         int loc2;
         char pad[128];
     } tvals;
-    tvals maxinfo[16];
+    tvals maxinfo[18];
     int loc11;
     int loc22;
     start_time = omp_get_wtime();
