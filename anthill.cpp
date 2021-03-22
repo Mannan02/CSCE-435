@@ -403,8 +403,8 @@ int main (int argc, char **argv) {
         for (int i = 1; i < 16; ++i){
             if (maxinfo[i].val > max_val){
                 max_val = maxinfo[i].val;
-                loc11 = maxinfo[i].loc1;
-                loc22 = maxinfo[i].loc2;
+                loc1 = maxinfo[i].loc1;
+                loc2 = maxinfo[i].loc2;
             }
         }
     }
