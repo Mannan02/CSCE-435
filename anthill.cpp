@@ -447,8 +447,8 @@ int main (int argc, char **argv) {
         }
     }
     printf("%d %d\n", loc3, loc4);
-    upperi = loc3 + 2;
-    upperj = loc4 + 2;
+    upperi = loc3 + 3;
+    upperj = loc4 + 3;
     if (loc3 + 5 >= MyLawn.m){
         upperi = MyLawn.m;
     }

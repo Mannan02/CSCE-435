@@ -305,9 +305,9 @@ void Lawn_Class::anthillFinder(){
         upperj = this->m;
     }
     // #pragma omp parallel for
-    for (int i = loc1-6; i < upperi; i+=3){
+    for (int i = loc1-5; i < upperi; i+=3){
         // #pragma omp parallel for
-        for (int j = loc2-6; j < upperj; j+=3){
+        for (int j = loc2-5; j < upperj; j+=3){
             double val = this->number_of_ants_in_cell(i, j);
             // #pragma omp critical
             if (val > max_val){
@@ -317,20 +317,20 @@ void Lawn_Class::anthillFinder(){
             }
         }
     }
-    upperi = loc3 + 2;
-    upperj = loc4 + 2;
-    if (loc3 + 3 >= this->m){
+    upperi = loc3 + 3;
+    upperj = loc4 + 3;
+    if (loc3 + 5 >= this->m){
         upperi = this->m;
     }
-    if (loc4 + 3 >= this->m){
+    if (loc4 + 5 >= this->m){
         upperj = this->m;
     }
     int finalLoc1 = 0;
     int finalLoc2 = 0;
     max_val = 0;
 
-    for (int i = loc3-1; i < upperi && i < this->m; ++i){
-        for (int j = loc4-1; j < upperj && j < this->m; ++j){
+    for (int i = loc3-2; i < upperi && i < this->m; ++i){
+        for (int j = loc4-2; j < upperj && j < this->m; ++j){
             double val = this->number_of_ants_in_cell(i, j);
             if (val > max_val){
                 max_val = val;
