@@ -305,9 +305,9 @@ void Lawn_Class::anthillFinder(){
         upperj = this->m;
     }
     // #pragma omp parallel for
-    for (int i = loc1-5; i < upperi; i+=3){
+    for (int i = loc1-5; i < upperi; i+=5){
         // #pragma omp parallel for
-        for (int j = loc2-5; j < upperj; j+=3){
+        for (int j = loc2-5; j < upperj; j+=5){
             double val = this->number_of_ants_in_cell(i, j);
             // #pragma omp critical
             if (val > max_val){
