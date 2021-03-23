@@ -370,56 +370,56 @@ int main (int argc, char **argv) {
     tvals maxinfo[18];
     int loc1;
     int loc2;
-    // #pragma omp parallel shared(maxinfo)
-    // {
-    //     int id = omp_get_thread_num();
-    //     printf("id: %d", id);
-    //     maxinfo[id].val = -1.0e30;
-    //     #pragma omp for collapse(2)
-    //     for (i = 7; i < MyLawn.m; i+=15){
-    //             // #pragma omp parallel for
-    //             for (j = 7; j < MyLawn.m; j+=15){
-    //                 double val = MyLawn.number_of_ants_in_cell(i, j);
-    //                 // #pragma omp critical
-    //                 if (val > maxinfo[id].val){
-    //                     maxinfo[id].val = val;
-    //                     maxinfo[id].loc1 = i;
-    //                     maxinfo[id].loc2 = j;
-    //                 }
-    //             }
-    //         }
-    // }
-    // #pragma omp flush(maxinfo)
-    // #pragma omp master
-    // {
-    //     int nt = omp_get_num_threads();
-    //     printf("%d\n",nt);
-    //     loc1 = maxinfo[0].loc1;
-    //     loc2 = maxinfo[0].loc2;
-    //     max_val = maxinfo[0].val;
-    //     for (int i = 1; i < 16; ++i){
-    //         if (maxinfo[i].val > max_val){
-    //             max_val = maxinfo[i].val;
-    //             loc1 = maxinfo[i].loc1;
-    //             loc2 = maxinfo[i].loc2;
-    //         }
-    //     }
-    // }
-    max_val = 0;
-    // printf("%d %d\n", loc11, loc22);
-    // #pragma omp parallel for collapse(2) private(i,j) shared(max_val, loc1, loc2)
-    for (i = 7; i < MyLawn.m; i+=15){
-        // #pragma omp parallel for
-        for (j = 7; j < MyLawn.m; j+=15){
-            double val = MyLawn.number_of_ants_in_cell(i, j);
-            // #pragma omp critical
-            if (val > max_val){
-                max_val = val;
-                loc1 = i;
-                loc2 = j;
+    #pragma omp parallel shared(maxinfo)
+    {
+        int id = omp_get_thread_num();
+        printf("id: %d", id);
+        maxinfo[id].val = -1.0e30;
+        #pragma omp for collapse(2)
+        for (i = 7; i < MyLawn.m; i+=15){
+                // #pragma omp parallel for
+                for (j = 7; j < MyLawn.m; j+=15){
+                    double val = MyLawn.number_of_ants_in_cell(i, j);
+                    // #pragma omp critical
+                    if (val > maxinfo[id].val){
+                        maxinfo[id].val = val;
+                        maxinfo[id].loc1 = i;
+                        maxinfo[id].loc2 = j;
+                    }
+                }
+            }
+    }
+    #pragma omp flush(maxinfo)
+    #pragma omp master
+    {
+        int nt = omp_get_num_threads();
+        printf("%d\n",nt);
+        loc1 = maxinfo[0].loc1;
+        loc2 = maxinfo[0].loc2;
+        max_val = maxinfo[0].val;
+        for (int i = 1; i < 16; ++i){
+            if (maxinfo[i].val > max_val){
+                max_val = maxinfo[i].val;
+                loc1 = maxinfo[i].loc1;
+                loc2 = maxinfo[i].loc2;
             }
         }
     }
+    // max_val = 0;
+    // printf("%d %d\n", loc11, loc22);
+    // #pragma omp parallel for collapse(2) private(i,j) shared(max_val, loc1, loc2)
+    // for (i = 7; i < MyLawn.m; i+=15){
+    //     // #pragma omp parallel for
+    //     for (j = 7; j < MyLawn.m; j+=15){
+    //         double val = MyLawn.number_of_ants_in_cell(i, j);
+    //         // #pragma omp critical
+    //         if (val > max_val){
+    //             max_val = val;
+    //             loc1 = i;
+    //             loc2 = j;
+    //         }
+    //     }
+    // }
     // double exec_time2 = omp_get_wtime();
     // printf("%d %d %.8f\n", loc1, loc2,exec_time2-exec_time);
     int loc3 = 0;
