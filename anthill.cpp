@@ -4,6 +4,7 @@
 #include <new>
 #include <omp.h>
 #include <algorithm>
+#include <assert.h>
 
 using namespace std;
 
@@ -329,8 +330,11 @@ void Lawn_Class::anthillFinder(){
         }
     }
     
-    printf("%d %d\n", finalLoc1, finalLoc2);
+    printf("%d %d %d %d\n", this->anthill_x, this->anthill_y, finalLoc1, finalLoc2);
+    assert(finalLoc2==this->anthill_y);
+    assert(finalLoc1==this->anthill_x);
 }
+
 int main (int argc, char **argv) {
 
     double start_time, execution_time; // Variables to determine execution time
@@ -347,8 +351,16 @@ int main (int argc, char **argv) {
     int size = atoi(argv[1]); 
     int anthill_x = atoi(argv[2]); 
     int anthill_y = atoi(argv[3]); 
-    int steps = atoi(argv[4]); 
+    int steps = atoi(argv[4]);
 
+    #pragma omp parallel for collapse(2)
+    for (int i = 0; i < size; ++i){
+        for ( int j = 0; j < size; ++j){
+            Lawn_Class MyLawn2;
+            MyLawn2.initialize_Lawn(size, i, j, steps);
+            MyLawn2.anthillFinder();
+        }
+    }
     MyLawn.initialize_Lawn(size, anthill_x, anthill_y, steps); 
 
     MyLawn.save_Lawn_to_file(); // Not recommended when size is large
