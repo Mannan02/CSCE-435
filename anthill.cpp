@@ -257,6 +257,7 @@ void Lawn_Class::anthillFinder(){
     tvals maxinfo[18];
     int loc1;
     int loc2;
+    printf("Hello");
     #pragma omp parallel shared(maxinfo)
     {
         int id = omp_get_thread_num();
