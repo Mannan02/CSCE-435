@@ -358,6 +358,7 @@ int main (int argc, char **argv) {
         for ( int j = 0; j < size; ++j){
             Lawn_Class MyLawn2;
             MyLawn2.initialize_Lawn(size, i, j, steps);
+            printf("init\n");
             MyLawn2.anthillFinder();
         }
     }
