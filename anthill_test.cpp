@@ -364,7 +364,7 @@ int main (int argc, char **argv) {
     int steps = atoi(argv[4]);
 
     // #pragma omp parallel for collapse(2)
-    for (int i = 0; i < size; ++i){
+    for (int i = 5; i < size; ++i){
         for ( int j = 0; j < size; ++j){
             Lawn_Class MyLawn2;
             MyLawn2.initialize_Lawn(size, i, j, steps);
