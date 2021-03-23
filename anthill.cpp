@@ -314,7 +314,6 @@ void Lawn_Class::anthillFinder(){
             }
         }
     }
-    printf("%d %d\n", loc3, loc4);
     int finalLoc1 = 0;
     int finalLoc2 = 0;
     max_val = 0;
@@ -330,7 +329,7 @@ void Lawn_Class::anthillFinder(){
         }
     }
     
-    printf("%d %d", finalLoc1, finalLoc2);
+    printf("%d %d\n", finalLoc1, finalLoc2);
 }
 int main (int argc, char **argv) {
 
@@ -359,7 +358,7 @@ int main (int argc, char **argv) {
 
     start_time = omp_get_wtime(); 
     volatile int found = 0;
-    printf("Initialized");
+    // printf("Initialized");
     // #pragma omp parallel for default(none) shared(MyLawn, found)
     // for (int i = 0; i < MyLawn.m; i++) {
     //     for (int j = 0; j < MyLawn.m; j++) {
