@@ -405,7 +405,7 @@ int main (int argc, char **argv) {
     //         }
     //     }
     // }
-    // max_val = 0;
+    max_val = 0;
     // printf("%d %d\n", loc11, loc22);
     // #pragma omp parallel for collapse(2) private(i,j) shared(max_val, loc1, loc2)
     for (i = 7; i < MyLawn.m; i+=15){
