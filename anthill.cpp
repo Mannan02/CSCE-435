@@ -459,8 +459,8 @@ int main (int argc, char **argv) {
     int finalLoc2 = 0;
     max_val = 0;
 
-    for (int i = loc3-2; i < upperi && i < MyLawn.m; ++i){
-        for (int j = loc4-2; j < upperj && j < MyLawn.m; ++j){
+    for (int i = max(loc3-2,0); i < upperi && i < MyLawn.m; ++i){
+        for (int j = max(loc4-2,0); j < upperj && j < MyLawn.m; ++j){
             double val = MyLawn.number_of_ants_in_cell(i, j);
             if (val > max_val){
                 max_val = val;
