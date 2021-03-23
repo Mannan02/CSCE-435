@@ -319,19 +319,19 @@ void Lawn_Class::anthillFinder(){
     }
     upperi = loc3 + 2;
     upperj = loc4 + 2;
-    if (loc3 + 3 >= MyLawn.m){
-        upperi = MyLawn.m;
+    if (loc3 + 3 >= this->m){
+        upperi = this->m;
     }
-    if (loc4 + 3 >= MyLawn.m){
-        upperj = MyLawn.m;
+    if (loc4 + 3 >= this->m){
+        upperj = this->m;
     }
     int finalLoc1 = 0;
     int finalLoc2 = 0;
     max_val = 0;
 
-    for (int i = loc3-1; i < upperi && i < MyLawn.m; ++i){
-        for (int j = loc4-1; j < upperj && j < MyLawn.m; ++j){
-            double val = MyLawn.number_of_ants_in_cell(i, j);
+    for (int i = loc3-1; i < upperi && i < this->m; ++i){
+        for (int j = loc4-1; j < upperj && j < this->m; ++j){
+            double val = this->number_of_ants_in_cell(i, j);
             if (val > max_val){
                 max_val = val;
                 finalLoc1 = i;
