@@ -447,6 +447,14 @@ int main (int argc, char **argv) {
         }
     }
     printf("%d %d\n", loc3, loc4);
+    upperi = loc3 + 2;
+    upperj = loc4 + 2;
+    if (loc3 + 3 >= MyLawn.m){
+        upperi = MyLawn.m;
+    }
+    if (loc4 + 3 >= MyLawn.m){
+        upperj = MyLawn.m;
+    }
     int finalLoc1 = 0;
     int finalLoc2 = 0;
     max_val = 0;
