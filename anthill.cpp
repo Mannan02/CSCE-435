@@ -566,7 +566,7 @@ int main (int argc, char **argv) {
     //         }
     //     }
     // }
-    MyLawn.anthillFinder();
+    // MyLawn.anthillFinder();
     // printf("%d %d", finalLoc1, finalLoc2);
     // #pragma parallel for ends here ...
     execution_time = omp_get_wtime() - start_time; 
