@@ -317,8 +317,8 @@ void Lawn_Class::anthillFinder(){
             }
         }
     }
-    upperi = loc3 + 3;
-    upperj = loc4 + 3;
+    upperi = loc3 + 8;
+    upperj = loc4 + 8;
     if (loc3 + 5 >= this->m){
         upperi = this->m;
     }
@@ -329,8 +329,8 @@ void Lawn_Class::anthillFinder(){
     int finalLoc2 = 0;
     max_val = 0;
 
-    for (int i = max(loc3-2,0); i < upperi && i < this->m; ++i){
-        for (int j = max(loc4-2,0); j < upperj && j < this->m; ++j){
+    for (int i = max(loc3-7,0); i < upperi && i < this->m; ++i){
+        for (int j = max(loc4-7,0); j < upperj && j < this->m; ++j){
             double val = this->number_of_ants_in_cell(i, j);
             if (val > max_val){
                 max_val = val;
