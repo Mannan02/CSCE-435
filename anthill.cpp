@@ -259,7 +259,7 @@ void Lawn_Class::anthillFinder(){
     #pragma omp parallel shared(maxinfo)
     {
         int id = omp_get_thread_num();
-        // printf("id: %d", id);
+        printf("id: %d", id);
         maxinfo[id].val = -1.0e30;
         #pragma omp for collapse(2)
         for (i = 7; i < this->m; i+=15){
