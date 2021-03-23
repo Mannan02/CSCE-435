@@ -278,7 +278,7 @@ void Lawn_Class::anthillFinder(){
     #pragma omp master
     {
         int nt = omp_get_num_threads();
-        printf("%d\n",nt);
+        // printf("%d\n",nt);
         loc1 = maxinfo[0].loc1;
         loc2 = maxinfo[0].loc2;
         max_val = maxinfo[0].val;
