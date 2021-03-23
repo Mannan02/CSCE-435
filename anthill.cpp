@@ -253,11 +253,11 @@ void Lawn_Class::anthillFinder(){
     double max_val = 0;
     int i;
     int j;
-    
+    printf("Hello");
     tvals maxinfo[18];
     int loc1;
     int loc2;
-    printf("Hello");
+    
     #pragma omp parallel shared(maxinfo)
     {
         int id = omp_get_thread_num();
@@ -566,7 +566,7 @@ int main (int argc, char **argv) {
     //         }
     //     }
     // }
-    // MyLawn.anthillFinder();
+    MyLawn.anthillFinder();
     // printf("%d %d", finalLoc1, finalLoc2);
     // #pragma parallel for ends here ...
     execution_time = omp_get_wtime() - start_time; 
