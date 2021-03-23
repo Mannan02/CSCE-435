@@ -15,6 +15,13 @@ using namespace std;
 //         graphing sheet); Lawn is a 2D array where L[i][j] holds the expected 
 //         number of ants 
 //
+typedef struct
+    {
+        double val;
+        int loc1;
+        int loc2;
+        char pad[128];
+    } tvals;
 class Lawn_Class {
     public:
 	// Lawn query functions
@@ -246,13 +253,7 @@ void Lawn_Class::anthillFinder(){
     double max_val = 0;
     int i;
     int j;
-    typedef struct
-    {
-        double val;
-        int loc1;
-        int loc2;
-        char pad[128];
-    } tvals;
+    
     tvals maxinfo[18];
     int loc1;
     int loc2;
