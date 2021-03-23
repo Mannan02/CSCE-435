@@ -296,7 +296,7 @@ void Lawn_Class::anthillFinder(){
     int loc3 = 0;
     int loc4 = 0;
     max_val = 0;
-    int upperi = loc1+8;
+    int upperi = loc1 + 8;
     int upperj = loc2 + 8;
     if (loc1 + 15 >= this->m){
         upperi = this->m;
