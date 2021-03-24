@@ -318,6 +318,7 @@ int main (int argc, char **argv) {
             }
         }
     }
+    printf("%f", max_val);
     printf("%f\n",maxinfo[0]);
     int loc3 = 0;
     int loc4 = 0;
