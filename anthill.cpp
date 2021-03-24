@@ -290,6 +290,7 @@ int main (int argc, char **argv) {
         for (i = 7; i < MyLawn.m; i+=15){
                 // #pragma omp parallel for
                 for (j = 7; j < MyLawn.m; j+=15){
+                    int id = omp_get_thread_num();
                     double val = MyLawn.number_of_ants_in_cell(i, j);
                     // #pragma omp critical
                     if (val > maxinfo[id].val){
