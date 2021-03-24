@@ -310,7 +310,7 @@ int main (int argc, char **argv) {
         loc2 = maxinfo[0].loc2;
         max_val = maxinfo[0].val;
         for (int i = 1; i < 16; ++i){
-            printf("%d %f\n", i, maxinfo[i]);
+            printf("%d %f\n", i, maxinfo[i].val);
             if (maxinfo[i].val > max_val){
                 max_val = maxinfo[i].val;
                 loc1 = maxinfo[i].loc1;
@@ -318,8 +318,7 @@ int main (int argc, char **argv) {
             }
         }
     }
-    printf("%f", max_val);
-    printf("%f\n",maxinfo[0]);
+    
     int loc3 = 0;
     int loc4 = 0;
     max_val = 0;
