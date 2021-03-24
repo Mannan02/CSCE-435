@@ -268,95 +268,6 @@ int main (int argc, char **argv) {
 
     start_time = omp_get_wtime(); 
     volatile int found = 0;
-    printf("Initialized");
-    // #pragma omp parallel for default(none) shared(MyLawn, found)
-    // for (int i = 0; i < MyLawn.m; i++) {
-    //     for (int j = 0; j < MyLawn.m; j++) {
-    //         if (found == 0) {
-    //             if (MyLawn.guess_anthill_location(i,j) == 1) {
-    //             found = 1;
-    //             #pragma omp flush(found)
-    //             }
-    //         }
-    //     }       
-    // }
-
-    // int i = int(MyLawn.m/2);
-    // int j = int(MyLawn.m/2);
-    // int l = MyLawn.m;
-    // int m = 0;
-    // int a = 0;
-    // int b = 0;
-    // for (int i = 0; i< MyLawn.m; ++i){
-    //     int imax = 0;
-    //     int d = 0;
-    //     for (int j = 0; j < MyLawn.m; ++j){
-    //         int v = MyLawn.number_of_ants_in_cell(i, j);
-    //         if (imax < v){
-    //             d = j;
-    //             imax = v;
-    //         }
-    //         // imax = max({imax, MyLawn.number_of_ants_in_cell(i,j)})
-    //     }
-    //     if (m>imax){
-    //         break;
-    //     }
-    //     else{
-    //         m = imax;
-    //         a = i;
-    //         b = d;
-    //     }
-    // }
-    // printf("%d %d\n", a,b);
-
-    // for(int i = 0; i < MyLawn.m; ++i){
-    //     int idx;
-    //     int max_val;
-
-    //     #pragma omp parallel for reduction(max: max_val)
-    //     for (idx = 0; idx < MyLawn.m; ++i){
-
-    //     }
-    // }
-    
-    // int i = 0;
-    // int j = 0;
-    // // int count = 127;
-    // while (i < MyLawn.m-1 && j < MyLawn.m)
-    // {
-    //     printf("%d %d", i, j);
-    //     // count--;
-    //     int val = MyLawn.number_of_ants_in_cell(i,j);
-    //     if (MyLawn.guess_anthill_location(i,j)==1){
-    //         found = 1;
-    //         break;
-    //     }
-    //     else if (MyLawn.number_of_ants_in_cell(i+1,j)>val)
-    //     {
-    //         ++i;
-    //     }
-    //     else{
-    //         ++j;
-    //     }
-        
-    // }
-    // int max_val = 0;
-    // int loc1 = 0;
-    // int loc2 = 0;
-    // int k, row, col, index;
-    // #pragma omp parallel for
-    // for (k = 0; k < MyLawn.m * MyLawn.m; ++k){
-    //     int i = k/MyLawn.m;
-    //     int j = k%MyLawn.m;
-    //     int val = MyLawn.number_of_ants_in_cell(i, j);
-    //     if (val > max_val){
-    //         #pragma omp critical
-    //         max_val = val;
-    //         loc1 = i;
-    //         loc2 = j;
-    //     }
-    // }
-    // printf("%d %d", loc1, loc2);
     double max_val = 0;
     int i;
     int j;
@@ -405,23 +316,6 @@ int main (int argc, char **argv) {
             }
         }
     }
-    // max_val = 0;
-    printf("%d %d\n", loc1, loc2);
-    // #pragma omp parallel for collapse(2) private(i,j) shared(max_val, loc1, loc2)
-    // for (i = 7; i < MyLawn.m; i+=15){
-    //     // #pragma omp parallel for
-    //     for (j = 7; j < MyLawn.m; j+=15){
-    //         double val = MyLawn.number_of_ants_in_cell(i, j);
-    //         // #pragma omp critical
-    //         if (val > max_val){
-    //             max_val = val;
-    //             loc1 = i;
-    //             loc2 = j;
-    //         }
-    //     }
-    // }
-    // double exec_time2 = omp_get_wtime();
-    // printf("%d %d %.8f\n", loc1, loc2,exec_time2-exec_time);
     int loc3 = 0;
     int loc4 = 0;
     max_val = 0;
@@ -446,7 +340,6 @@ int main (int argc, char **argv) {
             }
         }
     }
-    printf("%d %d\n", loc3, loc4);
     upperi = loc3 + 8;
     upperj = loc4 + 8;
     if (loc3 + 5 >= MyLawn.m){
@@ -470,7 +363,7 @@ int main (int argc, char **argv) {
         }
     }
     
-    printf("%d %d", finalLoc1, finalLoc2);
+    printf("Anthill Location: %d %d\n", finalLoc1, finalLoc2);
     // #pragma parallel for ends here ...
     execution_time = omp_get_wtime() - start_time; 
 
