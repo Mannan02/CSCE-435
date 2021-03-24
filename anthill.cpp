@@ -271,6 +271,7 @@ int main (int argc, char **argv) {
     double max_val = 0;
     int i;
     int j;
+    //Max parallelization code adapted from: http://wgropp.cs.illinois.edu/courses/cs598-s15/lectures/lecture18.pdf
     typedef struct
     {
         double val;
@@ -303,12 +304,10 @@ int main (int argc, char **argv) {
     #pragma omp flush(maxinfo)
     #pragma omp master
     {
-        int nt = omp_get_num_threads();
-        printf("%d\n",nt);
         loc1 = maxinfo[0].loc1;
         loc2 = maxinfo[0].loc2;
         max_val = maxinfo[0].val;
-        for (int i = 1; i < 4; ++i){
+        for (int i = 1; i < 8; ++i){
             if (maxinfo[i].val > max_val){
                 max_val = maxinfo[i].val;
                 loc1 = maxinfo[i].loc1;
